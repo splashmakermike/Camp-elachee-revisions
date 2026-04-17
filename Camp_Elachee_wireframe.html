@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camp Elachee — Wireframe (Figma Ready)</title>
+<style>
+/* ============================================================
+   WIREFRAME DESIGN SYSTEM
+   Pure grayscale — Figma-importable via HTML to Figma plugin
+   Desktop: 1440px | Content max-width: 1140px
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --w-bg:        #F2F2F2;
+  --w-surface:   #FFFFFF;
+  --w-surface2:  #E8E8E8;
+  --w-surface3:  #D4D4D4;
+  --w-dark:      #2C2C2C;
+  --w-dark2:     #1A1A1A;
+  --w-mid:       #555555;
+  --w-soft:      #888888;
+  --w-light:     #BBBBBB;
+  --w-border:    #D0D0D0;
+  --w-img:       #CCCCCC;
+  --w-img-dark:  #999999;
+  --w-accent:    #444444;
+  --w-btn:       #333333;
+  --w-btn-out:   #666666;
+  --anno-bg:     #FFF9E6;
+  --anno-border: #E6C840;
+  --anno-text:   #7A6000;
+  --section-label-bg: #E0E0E0;
+  --section-label-text: #555;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #DCDCDC;
+  color: var(--w-dark);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---- FIGMA FRAME WRAPPER ---- */
+.figma-frame {
+  width: 1440px;
+  margin: 0 auto;
+  background: var(--w-bg);
+  position: relative;
+}
+
+/* ---- LAYOUT ---- */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.container-sm {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+section { position: relative; }
+
+/* ---- SECTION ANNOTATION ---- */
+.anno {
+  position: absolute;
+  left: 0; top: 0;
+  background: var(--anno-bg);
+  border-bottom: 2px solid var(--anno-border);
+  border-right: 2px solid var(--anno-border);
+  border-radius: 0 0 8px 0;
+  padding: 5px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--anno-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+/* ---- SECTION DIVIDER LABEL ---- */
+.section-rule {
+  background: var(--section-label-bg);
+  padding: 6px 32px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--section-label-text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--w-border);
+  border-bottom: 1px solid var(--w-border);
+}
+
+/* ---- WIREFRAME PRIMITIVES ---- */
+.wf-img {
+  background: var(--w-img);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.wf-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(0,0,0,0.05) 8px,
+    rgba(0,0,0,0.05) 9px
+  );
+}
+.wf-img-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--w-mid);
+  letter-spacing: 0.04em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+.wf-img-dark { background: var(--w-img-dark); }
+.wf-img-dark .wf-img-label { color: var(--w-surface); }
+
+.btn-wf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 22px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: default;
+  white-space: nowrap;
+}
+.btn-solid { background: var(--w-btn); color: #fff; }
+.btn-outline { background: transparent; color: var(--w-btn-out); border: 1.5px solid var(--w-btn-out); }
+.btn-ghost { background: rgba(255,255,255,0.15); color: #fff; border: 1.5px solid rgba(255,255,255,0.35); }
+.btn-lg { padding: 14px 28px; font-size: 14px; }
+
+.tag-wf {
+  display: inline-block;
+  background: var(--w-surface2);
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--w-mid);
+  letter-spacing: 0.04em;
+}
+
+.eyebrow-wf {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--w-soft);
+  margin-bottom: 10px;
+}
+
+.divider-wf {
+  border: none;
+  border-top: 1px solid var(--w-border);
+}
+
+.stars-wf { color: var(--w-light); font-size: 13px; letter-spacing: 2px; }
+
+/* ---- TEXT PLACEHOLDERS ---- */
+.txt-block { display: flex; flex-direction: column; gap: 6px; }
+.txt-line {
+  height: 10px;
+  background: var(--w-surface3);
+  border-radius: 3px;
+}
+.txt-line.w-100 { width: 100%; }
+.txt-line.w-90  { width: 90%; }
+.txt-line.w-80  { width: 80%; }
+.txt-line.w-70  { width: 70%; }
+.txt-line.w-60  { width: 60%; }
+.txt-line.w-50  { width: 50%; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.wf-nav {
+  background: var(--w-surface);
+  border-bottom: 1px solid var(--w-border);
+  padding: 0;
+  position: relative;
+}
+.wf-nav-top {
+  background: var(--w-surface2);
+  padding: 6px 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  max-width: 100%;
+}
+.wf-nav-top span {
+  font-size: 11px;
+  color: var(--w-soft);
+  font-weight: 500;
+}
+.wf-nav-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wf-logo {
+  width: 160px;
+  height: 44px;
+  background: var(--w-surface2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--w-soft);
+  letter-spacing: 0.05em;
+}
+.wf-nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.wf-nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--w-mid);
+  text-decoration: none;
+}
+
+/* ============================================================
+   S1: HERO
+   ============================================================ */
+.wf-hero {
+  background: var(--w-dark2);
+  padding: 0;
+  position: relative;
+  min-height: 640px;
+}
+.wf-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--w-img-dark);
+  opacity: 0.4;
+}
+.wf-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 11px);
+}
+.wf-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.25) 100%);
+}
+.wf-hero-content {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 32px 80px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.wf-hero-text {}
+.wf-urgency-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-bottom: 20px;
+}
+.urgency-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #AAAAAA;
+  flex-shrink: 0;
+}
+.wf-urgency-pill span { font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 500; }
+.wf-hero-h1 { font-size: 52px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+.wf-hero-h1 .italic-line { display: block; color: #BBBBBB; font-style: italic; }
+.wf-hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; margin-bottom: 32px; }
+.wf-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.wf-hero-urgency { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+.wf-hero-visual {}
+.wf-hero-img-frame {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 5px;
+  aspect-ratio: 4/5;
+}
+.wf-hero-img-inner {
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+.wf-hero-img-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(255,255,255,0.03) 8px, rgba(255,255,255,0.03) 9px);
+}
+.wf-hero-float {
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.wf-float-num { font-size: 26px; font-weight: 700; color: var(--w-dark); line-height: 1; }
+.wf-float-label { font-size: 11px; color: var(--w-soft); margin-top: 2px; }
+
+/* ============================================================
+   S2: PROBLEM
+   ============================================================ */
+.wf-problem { background: var(--w-surface2); padding: 80px 0; position: relative; }
+.wf-problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.wf-problem-cards { display: flex; flex-direction: column; gap: 12px; }
+.wf-problem-card {
+  background: var(--w-surface);
+  border-radius: 8px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--w-surface3);
+}
+.wf-problem-card h5 { font-size: 13px; font-weight: 700; color: var(--w-mid); margin-bottom: 6px; }
+
+/* ============================================================
+   S3: GUIDE + STATS
+   ============================================================ */
+.wf-guide { background: var(--w-surface); padding: 80px 0; position: relative; }
+.wf-guide-center { text-align: center; max-width: 700px; margin: 0 auto 48px; }
+.wf-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--w-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.wf-stat {
+  background: var(--w-surface);
+  padding: 28px 20px;
+  text-align: center;
+}
+.wf-stat-num { font-size: 36px; font-weight: 700; color: var(--w-dark); line-height: 1; margin-bottom: 6px; display: block; }
+.wf-stat-label { font-size: 12px; color: var(--w-soft); font-weight: 500; }
+.wf-guide-quote {
+  background: var(--w-bg);
+  border-radius: 16px;
+  padding: 32px 40px;
+  border: 1px solid var(--w-border);
+  text-align: center;
+}
+.wf-guide-quote p { font-style: italic; font-size: 16px; color: var(--w-mid); line-height: 1.75; }
+
+/* ============================================================
+   S4: TRANSFORMATION
+   ============================================================ */
+.wf-transform { background: var(--w-dark2); padding: 80px 0; position: relative; }
+.wf-outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.wf-outcome-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  padding: 24px;
+}
+.wf-outcome-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  background: rgba(255,255,255,0.10);
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.wf-icon-ph { width: 20px; height: 20px; background: rgba(255,255,255,0.3); border-radius: 3px; }
+.wf-outcome-card h5 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.wf-outcome-card .txt-line { background: rgba(255,255,255,0.15); }
+.wf-transform-close { margin-top: 40px; text-align: center; }
+.wf-transform-close p { font-style: italic; font-size: 18px; color: rgba(255,255,255,0.6); margin-bottom: 24px; line-height: 1.5; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+/* ============================================================
+   S5: THEMES
+   ============================================================ */
+.wf-themes { background: var(--w-bg); padding: 80px 0; position: relative; }
+.wf-themes-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; gap: 24px; }
+.wf-themes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+.wf-themes-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.wf-theme-card {
+  background: var(--w-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--w-border);
+}
+.wf-theme-accent { height: 4px; background: var(--w-surface3); }
+.wf-theme-body { padding: 20px; }
+.wf-theme-card h5 { font-size: 15px; font-weight: 700; color: var(--w-dark); margin: 10px 0 6px; }
+.wf-theme-dates { font-size: 11px; color: var(--w-soft); font-weight: 500; margin-bottom: 8px; }
+
+/* ============================================================
+   S6: DAY AT CAMP
+   ============================================================ */
+.wf-day { background: var(--w-surface); padding: 80px 0; position: relative; }
+.wf-day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.wf-timeline { position: relative; padding-left: 28px; }
+.wf-timeline::before {
+  content: '';
+  position: absolute; left: 6px; top: 4px; bottom: 4px;
+  width: 2px; background: var(--w-border);
+}
+.wf-tl-item { position: relative; margin-bottom: 20px; }
+.wf-tl-dot {
+  position: absolute; left: -28px; top: 2px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--w-surface3);
+  border: 3px solid var(--w-surface);
+  box-shadow: 0 0 0 2px var(--w-border);
+}
+.wf-tl-time { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--w-soft); margin-bottom: 2px; }
+.wf-tl-title { font-weight: 600; font-size: 13px; color: var(--w-dark); margin-bottom: 4px; }
+.wf-creek-box {
+  background: var(--w-surface2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid var(--w-border);
+}
+.wf-creek-box h5 { font-size: 13px; font-weight: 700; color: var(--w-mid); margin-bottom: 8px; }
+.wf-check-list { list-style: none; }
+.wf-check-list li {
+  font-size: 12px; color: var(--w-mid);
+  padding: 3px 0 3px 14px;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.wf-check-list li:last-child { border: none; }
+.wf-check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--w-soft); font-size: 10px; font-weight: 700; }
+
+/* ============================================================
+   S7: SPECIALTY CAMPS
+   ============================================================ */
+.wf-specialty { background: var(--w-dark); padding: 80px 0; position: relative; }
+.wf-specialty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.wf-spec-card { border-radius: 16px; padding: 32px; }
+.wf-spec-card.card-a { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+.wf-spec-card.card-b { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); }
+.wf-spec-card .eyebrow-wf { color: rgba(255,255,255,0.4); }
+.wf-spec-card h4 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.wf-spec-card .txt-line { background: rgba(255,255,255,0.12); }
+.wf-spec-details { display: flex; flex-direction: column; gap: 7px; margin: 18px 0; }
+.wf-spec-detail { display: flex; gap: 10px; }
+.wf-spec-detail .dl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); min-width: 48px; }
+.wf-spec-detail .dv { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+.wf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.wf-tag-dark {
+  background: rgba(255,255,255,0.10);
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+
+/* ============================================================
+   S8: PLAN
+   ============================================================ */
+.wf-plan { background: var(--w-surface2); padding: 80px 0; position: relative; }
+.wf-plan-inner { text-align: center; max-width: 740px; margin: 0 auto; }
+.wf-plan-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--w-border);
+  border-radius: 16px; overflow: hidden;
+  margin: 36px 0 28px;
+}
+.wf-plan-step { background: var(--w-surface); padding: 32px 24px; text-align: left; }
+.wf-step-num { font-size: 44px; font-weight: 700; color: var(--w-border); line-height: 1; margin-bottom: 14px; }
+.wf-plan-step h5 { font-size: 15px; font-weight: 700; color: var(--w-dark); margin-bottom: 8px; }
+.wf-reassure-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.wf-reassure-pill {
+  background: var(--w-surface);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--w-mid);
+  border: 1px solid var(--w-border);
+  display: flex; align-items: center; gap: 5px;
+}
+.wf-reassure-pill::before { content: '✓'; color: var(--w-soft); font-size: 10px; font-weight: 700; }
+
+/* ============================================================
+   S9: PRACTICAL INFO
+   ============================================================ */
+.wf-practical { background: var(--w-surface); padding: 80px 0; position: relative; }
+.wf-practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.wf-prac-card { background: var(--w-bg); border-radius: 12px; padding: 24px; }
+.wf-prac-card h5 { font-size: 13px; font-weight: 700; color: var(--w-dark); margin-bottom: 14px; }
+.wf-prac-list { list-style: none; }
+.wf-prac-list li {
+  display: flex; gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 12px; color: var(--w-mid); line-height: 1.4;
+}
+.wf-prac-list li:last-child { border: none; }
+.wf-prac-label { font-weight: 600; color: var(--w-dark); min-width: 120px; flex-shrink: 0; }
+.wf-note {
+  background: var(--w-surface2);
+  border-radius: 5px;
+  border-left: 3px solid var(--w-surface3);
+  padding: 10px 12px;
+  font-size: 11px; color: var(--w-mid); margin-top: 10px; line-height: 1.5;
+}
+
+/* ============================================================
+   S10: PRICING
+   ============================================================ */
+.wf-pricing { background: var(--w-bg); padding: 80px 0; position: relative; }
+.wf-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+.wf-price-card {
+  background: var(--w-surface);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--w-border);
+  position: relative;
+}
+.wf-price-card.featured { border: 2px solid var(--w-dark); }
+.wf-featured-badge {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--w-dark);
+  color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 12px; border-radius: 100px;
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+.wf-price-card h5 { font-size: 14px; font-weight: 700; color: var(--w-dark); margin-bottom: 4px; }
+.wf-price-age { font-size: 11px; color: var(--w-soft); margin-bottom: 16px; }
+.wf-price-amount { font-size: 38px; font-weight: 700; color: var(--w-dark); line-height: 1; }
+.wf-price-amount span { font-size: 16px; color: var(--w-soft); }
+.wf-price-per { font-size: 11px; color: var(--w-soft); margin-bottom: 16px; }
+.wf-price-features { list-style: none; margin-bottom: 18px; }
+.wf-price-features li {
+  font-size: 12px; color: var(--w-mid);
+  padding: 4px 0 4px 14px;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.wf-price-features li:last-child { border: none; }
+.wf-price-features li::before { content: '✓'; position: absolute; left: 0; color: var(--w-soft); font-size: 10px; font-weight: 700; }
+.wf-discount-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.wf-discount-card {
+  background: var(--w-surface);
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid var(--w-border);
+  text-align: center;
+}
+.wf-discount-pct { font-size: 30px; font-weight: 700; color: var(--w-dark); line-height: 1; margin-bottom: 4px; }
+.wf-membership-banner {
+  margin-top: 18px;
+  background: var(--w-dark2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.wf-membership-banner p { font-size: 13px; color: rgba(255,255,255,0.65); margin: 0; }
+.wf-membership-banner strong { color: #fff; }
+
+/* ============================================================
+   S11: STAFF & SAFETY
+   ============================================================ */
+.wf-safety { background: var(--w-surface); padding: 80px 0; position: relative; }
+.wf-safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.wf-safety-features { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+.wf-safety-feat { display: flex; gap: 12px; align-items: flex-start; }
+.wf-safety-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: var(--w-surface2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wf-safety-feat h6 { font-size: 13px; font-weight: 700; color: var(--w-dark); margin-bottom: 3px; }
+.wf-safety-feat p { font-size: 12px; color: var(--w-soft); line-height: 1.5; }
+.wf-director-card {
+  background: var(--w-bg);
+  border-radius: 16px;
+  padding: 28px;
+}
+.wf-director-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--w-surface3);
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: var(--w-mid);
+}
+.wf-director-card h5 { font-size: 16px; font-weight: 700; color: var(--w-dark); margin-bottom: 2px; }
+.wf-director-title { font-size: 12px; color: var(--w-soft); margin-bottom: 14px; }
+.wf-director-quote {
+  border-left: 3px solid var(--w-border);
+  padding-left: 14px;
+  font-style: italic; font-size: 13px;
+  color: var(--w-mid); line-height: 1.7;
+  margin-bottom: 18px;
+}
+.wf-contact-links { display: flex; flex-direction: column; gap: 8px; }
+.wf-contact-link {
+  background: var(--w-surface2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px; color: var(--w-mid); font-weight: 500;
+}
+
+/* ============================================================
+   S12: TESTIMONIALS
+   ============================================================ */
+.wf-testimonials { background: var(--w-bg); padding: 80px 0; position: relative; }
+.wf-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+.wf-testi-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.wf-testi-card {
+  background: var(--w-surface);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--w-border);
+  display: flex; flex-direction: column;
+}
+.wf-testi-body { flex: 1; }
+.wf-testi-quote-mark { font-size: 24px; color: var(--w-border); line-height: 0.5; margin-bottom: 10px; }
+.wf-testi-author { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+.wf-testi-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--w-surface3);
+  flex-shrink: 0;
+}
+.wf-testi-name { font-size: 12px; font-weight: 600; color: var(--w-dark); }
+.wf-testi-type { font-size: 11px; color: var(--w-soft); }
+
+/* ============================================================
+   S13: FAQ
+   ============================================================ */
+.wf-faq { background: var(--w-surface); padding: 80px 0; position: relative; }
+.wf-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.wf-faq-item { border-bottom: 1px solid var(--w-border); }
+.wf-faq-row {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 12px;
+  padding: 16px 0;
+}
+.wf-faq-q { font-size: 13px; font-weight: 500; color: var(--w-dark); }
+.wf-faq-icon {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--w-surface2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--w-soft);
+  flex-shrink: 0; font-weight: 400;
+}
+.wf-faq-answer { padding-bottom: 12px; }
+
+/* ============================================================
+   S14: REGISTRATION
+   ============================================================ */
+.wf-register { background: var(--w-surface2); padding: 80px 0; position: relative; }
+.wf-register-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.wf-reg-dates { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.wf-reg-date {
+  background: var(--w-surface);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.wf-reg-date-icon { width: 36px; height: 36px; border-radius: 7px; background: var(--w-surface2); flex-shrink: 0; }
+.wf-reg-date-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--w-soft); }
+.wf-reg-date-val { font-size: 13px; font-weight: 600; color: var(--w-dark); }
+.wf-reg-steps-box { background: var(--w-bg); border-radius: 16px; padding: 28px; }
+.wf-reg-steps-box h5 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--w-mid); margin-bottom: 18px; }
+.wf-reg-step-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.wf-reg-step-list li { display: flex; gap: 10px; align-items: flex-start; }
+.wf-step-circle {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--w-dark);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.wf-reg-step-list li div { font-size: 12px; color: var(--w-mid); line-height: 1.5; }
+.wf-reg-step-list li div strong { color: var(--w-dark); }
+
+/* ============================================================
+   S15: FINAL CTA
+   ============================================================ */
+.wf-final-cta { background: var(--w-dark2); padding: 96px 0; position: relative; text-align: center; }
+.wf-final-cta h2 { font-size: 36px; font-weight: 700; color: #fff; max-width: 600px; margin: 0 auto 16px; line-height: 1.2; }
+.wf-final-cta p { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 36px; line-height: 1.7; }
+.wf-final-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.wf-final-note { font-size: 12px; color: rgba(255,255,255,0.25); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.wf-footer { background: var(--w-dark); padding: 56px 0 28px; }
+.wf-footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 40px;
+}
+.wf-footer-brand h4 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.wf-footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 240px; }
+.wf-footer-col h5 { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
+.wf-footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.wf-footer-links li { font-size: 13px; color: rgba(255,255,255,0.35); }
+.wf-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 20px;
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: rgba(255,255,255,0.2);
+}
+
+/* ============================================================
+   SIDEBAR ANNOTATION COLUMN
+   ============================================================ */
+.annotated-section {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 0;
+  position: relative;
+}
+.annotation-sidebar {
+  background: var(--anno-bg);
+  border-left: 2px solid var(--anno-border);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: stretch;
+}
+.annotation-sidebar .anno-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anno-text);
+  margin-bottom: 4px;
+}
+.annotation-sidebar .anno-body {
+  font-size: 11px;
+  color: #5A4800;
+  line-height: 1.6;
+}
+.annotation-sidebar .anno-tag {
+  display: inline-block;
+  background: #E6C840;
+  color: #5A4800;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* heading helpers for wireframe text */
+.wf-h1 { font-size: 42px; font-weight: 700; line-height: 1.1; }
+.wf-h2 { font-size: 32px; font-weight: 700; line-height: 1.2; }
+.wf-h3 { font-size: 22px; font-weight: 700; line-height: 1.25; }
+.wf-h4 { font-size: 16px; font-weight: 700; }
+.wf-h5 { font-size: 14px; font-weight: 700; }
+.wf-body { font-size: 14px; color: var(--w-mid); line-height: 1.7; }
+.wf-body-sm { font-size: 12px; color: var(--w-soft); line-height: 1.6; }
+.mt4 { margin-top: 4px; }
+.mt8 { margin-top: 8px; }
+.mt12 { margin-top: 12px; }
+.mt16 { margin-top: 16px; }
+.mt20 { margin-top: 20px; }
+.mt24 { margin-top: 24px; }
+.mt32 { margin-top: 32px; }
+.mb8 { margin-bottom: 8px; }
+.mb12 { margin-bottom: 12px; }
+.mb16 { margin-bottom: 16px; }
+.mb20 { margin-bottom: 20px; }
+.mb24 { margin-bottom: 24px; }
+.mb32 { margin-bottom: 32px; }
+.col-white { color: #fff !important; }
+.col-wht-60 { color: rgba(255,255,255,0.6) !important; }
+.col-wht-40 { color: rgba(255,255,255,0.4) !important; }
+.text-center { text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="figma-frame">
+
+<!-- WIREFRAME HEADER NOTE -->
+<div style="background:#1A1A1A;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;">
+  <div>
+    <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:0.08em;">WIREFRAME</span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);margin-left:12px;">Camp Elachee — Redesigned Page · 1440px Desktop · StoryBrand Framework</span>
+  </div>
+  <div style="display:flex;gap:16px;">
+    <span style="font-size:11px;color:rgba(255,255,255,0.3);">Import via: HTML to Figma (Builder.io plugin)</span>
+    <span style="font-size:11px;background:#E6C840;color:#1A1A1A;padding:2px 8px;border-radius:3px;font-weight:700;">FIGMA READY</span>
+  </div>
+</div>
+
+<!-- ========== NAVIGATION ========== -->
+<div class="section-rule">Navigation — Existing Elachee header / Elementor global header</div>
+<nav class="wf-nav" style="position:relative;">
+  <div class="wf-nav-top">
+    <span>Hours</span><span>Parking & Admissions</span><span>Directions</span><span>Calendar</span>
+    <span>Memberships</span><span>Donate</span>
+  </div>
+  <div class="wf-nav-main">
+    <div class="wf-logo">[ ELACHEE LOGO ]</div>
+    <div class="wf-nav-links">
+      <a href="#">Home</a><a href="#">Visit</a><a href="#">Camps & Programs</a>
+      <a href="#">Field Trips</a><a href="#">Events & Parties</a><a href="#">Resources</a>
+      <a href="#" style="margin-left:8px;"><span class="btn-wf btn-solid" style="padding:9px 18px;font-size:12px;">Register Now</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== S1: HERO ========== -->
+<div class="section-rule">Section 01 — Hero · StoryBrand: Hero + Stakes + Primary CTA</div>
+<section class="wf-hero" style="position:relative;">
+  <div class="anno">S1 · HERO</div>
+  <div class="wf-hero-bg"></div>
+  <div class="wf-hero-overlay"></div>
+  <div class="wf-hero-content">
+    <div class="wf-hero-text">
+      <div class="wf-urgency-pill">
+        <span class="urgency-dot"></span>
+        <span>Camps for Kindergarten through 8th Grade · Spots Fill Fast</span>
+      </div>
+      <div class="wf-h1 col-white mb16">Where Summer<br>Becomes an <span class="italic-line" style="color:#AAAAAA;font-style:italic;display:block;">Adventure</span></div>
+      <p class="wf-hero-sub">Your child doesn't need another screen. They need pine needles underfoot, creek water on their shins, and the kind of freedom that only comes from spending a week in 1,440 acres of real Georgia wilderness.</p>
+      <div class="wf-hero-btns">
+        <span class="btn-wf btn-solid btn-lg">Reserve Your Child's Spot →</span>
+        <span class="btn-wf btn-ghost">See 2026 Themes</span>
+      </div>
+      <p class="wf-hero-urgency">⚡ Member early access: Feb 3 · Public registration: March 3 · Spots fill fast</p>
+    </div>
+    <div class="wf-hero-visual" style="position:relative;">
+      <div class="wf-hero-img-frame">
+        <div class="wf-hero-img-inner">
+          <div style="text-align:center;z-index:1;position:relative;">
+            <div style="font-size:28px;opacity:0.3;">🌲</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;margin-top:4px;">HERO IMAGE<br>Child in creek / naturalist with snake<br>4:5 ratio — full bleed</div>
+          </div>
+        </div>
+      </div>
+      <div class="wf-hero-float" style="position:absolute;bottom:-16px;left:-28px;">
+        <div class="wf-float-num">20+</div>
+        <div class="wf-float-label">Years of Summers</div>
+      </div>
+      <div class="wf-hero-float" style="position:absolute;top:32px;right:-20px;background:#444;padding:10px 14px;">
+        <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:2px;">Camps for Every Age</div>
+        <div style="font-size:13px;color:#fff;font-weight:600;">K–2nd · 3rd–5th · 6th–8th</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:0 0 32px;position:relative;z-index:5;">
+    <span style="font-size:11px;color:rgba(255,255,255,0.25);">↓ Discover Camp Elachee</span>
+  </div>
+</section>
+
+<!-- ========== S2: PROBLEM ========== -->
+<div class="section-rule">Section 02 — Problem · StoryBrand: External / Internal / Philosophical Problem</div>
+<section class="wf-problem">
+  <div class="anno">S2 · PROBLEM</div>
+  <div class="container">
+    <div class="wf-problem-grid">
+      <div>
+        <span class="eyebrow-wf">The Problem</span>
+        <div class="wf-h2 mb16">Summer Shouldn't Be Something to Survive</div>
+        <p class="wf-body mb16" style="font-style:italic;font-size:16px;">"What did you do today?" "Nothing. I was on my phone."</p>
+        <div class="txt-block mb12">
+          <div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-100"></div><div class="txt-line w-80"></div>
+        </div>
+        <div class="txt-block mb12">
+          <div class="txt-line w-100"></div><div class="txt-line w-95"></div><div class="txt-line w-70"></div>
+        </div>
+        <p class="wf-body" style="font-weight:600;color:#2C2C2C;">Your child was made to explore. They just need the right place to do it.</p>
+        <div style="margin-top:24px;">
+          <span class="btn-wf btn-solid">Register for Camp →</span>
+        </div>
+      </div>
+      <div class="wf-problem-cards">
+        <div class="wf-problem-card">
+          <h5>Too Many Summers Just Disappear</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-70"></div></div>
+        </div>
+        <div class="wf-problem-card">
+          <h5>The Quiet Guilt That Comes With It</h5>
+          <p style="font-size:12px;color:var(--w-mid);line-height:1.5;margin-top:6px;">You know your child deserves a summer that actually builds something in them. Not just a way to fill the calendar.</p>
+        </div>
+        <div class="wf-problem-card">
+          <h5>The Window Doesn't Stay Open Forever</h5>
+          <p style="font-size:12px;color:var(--w-mid);line-height:1.5;margin-top:6px;">There is a season in every child's life when the right week outside can change how they see themselves. That season is now. And it won't last forever.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S3: GUIDE ========== -->
+<div class="section-rule">Section 03 — Guide · StoryBrand: Empathy + Authority + Trust</div>
+<section class="wf-guide">
+  <div class="anno">S3 · GUIDE</div>
+  <div class="container">
+    <div class="wf-guide-center">
+      <span class="eyebrow-wf">Why Elachee</span>
+      <div class="wf-h2 mb16">We've Been Doing This a Long Time. We Know What Works.</div>
+      <p style="font-size:13px;color:var(--w-mid);line-height:1.6;margin-bottom:8px;">Choosing a camp is a big decision. For over twenty years, we have been the place where kids in North Georgia discover what they are truly capable of.</p>
+      <p style="font-size:13px;color:var(--w-mid);line-height:1.6;">Leading a hike through Chicopee Woods. Calling out a bird by its song. Wading into a creek and not wanting to get out. Kids leave Camp Elachee more confident, more curious and more connected to the world around them.</p>
+    </div>
+    <div class="wf-stats-bar">
+      <div class="wf-stat"><span class="wf-stat-num">20+</span><span class="wf-stat-label">Years Running Camp</span></div>
+      <div class="wf-stat"><span class="wf-stat-num">1,440</span><span class="wf-stat-label">Acres of Chicopee Woods</span></div>
+      <div class="wf-stat"><span class="wf-stat-num">1,000's</span><span class="wf-stat-label">of Satisfied Campers</span></div>
+      <div class="wf-stat"><span class="wf-stat-num">5:1</span><span class="wf-stat-label">Camper-to-Staff Ratio</span></div>
+    </div>
+    <div class="wf-guide-quote">
+      <p>"Our naturalists don't just teach about the outdoors. They help children build a real relationship with it. Every trail hike, every creek day, every moment of discovery is designed with one goal: send your child home better than they arrived."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S4: TRANSFORMATION ========== -->
+<div class="section-rule">Section 04 — Transformation · StoryBrand: Success Vision / What They're Buying</div>
+<section class="wf-transform">
+  <div class="anno">S4 · TRANSFORMATION</div>
+  <div class="container">
+    <span class="eyebrow-wf" style="color:rgba(255,255,255,0.4);">What They'll Gain</span>
+    <div class="wf-h2 col-white mb12">This Is What You're Really Signing Them Up For</div>
+    <p class="wf-body col-wht-60 mb32" style="max-width:580px;">Campers leave with more than memories. Here's what you'll actually see in your child after a week at Camp Elachee.</p>
+    <div class="wf-outcomes-grid">
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Real Confidence</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div></div>
+      </div>
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Scientific Curiosity</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-85"></div><div class="txt-line w-70"></div></div>
+      </div>
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Genuine Friendships</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-80"></div><div class="txt-line w-75"></div></div>
+      </div>
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Independence &amp; Resilience</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-95"></div><div class="txt-line w-65"></div></div>
+      </div>
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Environmental Stewardship</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-80"></div><div class="txt-line w-60"></div></div>
+      </div>
+      <div class="wf-outcome-card">
+        <div class="wf-outcome-icon"><div class="wf-icon-ph"></div></div>
+        <h5>Joy of Being Bored (the Best Way)</h5>
+        <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-70"></div></div>
+      </div>
+    </div>
+    <div class="wf-transform-close">
+      <p>"They come home with stories, confidence, and muddy socks — and they can't wait to come back."</p>
+      <span class="btn-wf btn-solid btn-lg" style="background:#555;">Reserve Your Child's Spot →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S5: THEMES ========== -->
+<div class="section-rule">Section 05 — Camp Themes · All 8 weeks / 9 sessions — accurate 2026 schedule (no PDF)</div>
+<section class="wf-themes">
+  <div class="anno">S5 · THEMES</div>
+  <div class="container">
+    <div class="wf-themes-header">
+      <div>
+        <span class="eyebrow-wf">2026 Camp Themes</span>
+        <div class="wf-h2">Every Week is a Different World to Explore.</div>
+      </div>
+      <p class="wf-body-sm" style="max-width:280px;text-align:right;">Sessions run Monday–Friday. Many families register for multiple weeks.</p>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="wf-themes-grid">
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#7A9E78;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 June 1–5, 2026 · Week 1</div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Wilderness Wanderings</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div></div>
+
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#7A9E7822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7A9E78;margin:2px 2px 0 0;">Archery</span><span style="display:inline-block;background:#7A9E7822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7A9E78;margin:2px 2px 0 0;">Knot tying</span><span style="display:inline-block;background:#7A9E7822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7A9E78;margin:2px 2px 0 0;">Shelter building</span><span style="display:inline-block;background:#7A9E7822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7A9E78;margin:2px 2px 0 0;">Forest habitats</span></div>
+        </div>
+      </div>
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#7AAEC8;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 June 8–12, 2026 · Week 2 <span style="color:#666;font-weight:600;">(+ June 29–July 3)</span></div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Aquatic Adventures</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-85"></div><div class="txt-line w-70"></div></div>
+
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#7AAEC822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7AAEC8;margin:2px 2px 0 0;">Creek exploration</span><span style="display:inline-block;background:#7AAEC822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7AAEC8;margin:2px 2px 0 0;">Aquatic critters</span><span style="display:inline-block;background:#7AAEC822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#7AAEC8;margin:2px 2px 0 0;">Water science</span></div>
+          <div style="margin-top:5px;font-size:10px;color:var(--w-soft);">Also runs June 29–July 3</div>
+        </div>
+      </div>
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#7ABFB8;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 June 15–19, 2026 · Week 3</div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Winged Wonders</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-70"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="wf-themes-grid" style="margin-top:14px;">
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#9D98C8;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 June 22–26, 2026 · Week 4</div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Space Bound</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-85"></div><div class="txt-line w-75"></div></div>
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#9D98C822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#9D98C8;margin:2px 2px 0 0;">Solar system</span><span style="display:inline-block;background:#9D98C822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#9D98C8;margin:2px 2px 0 0;">Space experiments</span><span style="display:inline-block;background:#9D98C822;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#9D98C8;margin:2px 2px 0 0;">Earth science</span></div>
+        </div>
+      </div>
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#85B5D4;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 June 29–July 3, 2026 · Week 5 </div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Aquatic Adventures — 2nd Session</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-80"></div></div>
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#85B5D422;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#85B5D4;margin:2px 2px 0 0;">Creek exploration</span><span style="display:inline-block;background:#85B5D422;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#85B5D4;margin:2px 2px 0 0;">Aquatic critters</span><span style="display:inline-block;background:#85B5D422;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#85B5D4;margin:2px 2px 0 0;">Water science</span></div>
+        </div>
+      </div>
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#C89070;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 July 6–10, 2026 · Week 6</div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Ancient Elachee</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-85"></div><div class="txt-line w-70"></div></div>
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#C8907022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#C89070;margin:2px 2px 0 0;">Native peoples</span><span style="display:inline-block;background:#C8907022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#C89070;margin:2px 2px 0 0;">Dinosaurs & fossils</span><span style="display:inline-block;background:#C8907022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#C89070;margin:2px 2px 0 0;">Rocks & minerals</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="wf-themes-grid-2" style="margin-top:14px;">
+      <div class="wf-theme-card">
+        <div class="wf-theme-accent" style="background:#D4A870;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf">Elementary · K–6th Grade</span>
+          <div class="wf-theme-dates mt8">📅 July 13–17, 2026 · Week 7</div>
+          <h5 style="font-size:15px;font-weight:700;color:#2C2C2C;margin:8px 0 6px;">Camp Rewind</h5>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-75"></div></div>
+
+          <div style="margin-top:8px;line-height:1.4;"><span style="display:inline-block;background:#D4A87022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#D4A870;margin:2px 2px 0 0;">Fan favorites</span><span style="display:inline-block;background:#D4A87022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#D4A870;margin:2px 2px 0 0;">Classic games</span><span style="display:inline-block;background:#D4A87022;border-radius:100px;padding:2px 8px;font-size:10px;font-weight:500;color:#D4A870;margin:2px 2px 0 0;">Best of summer</span></div>
+        </div>
+      </div>
+      <div class="wf-theme-card" style="background:var(--w-surface2);border:1px solid #C8B8E0;">
+        <div class="wf-theme-accent" style="background:#9D80C8;"></div>
+        <div class="wf-theme-body">
+          <span class="tag-wf" style="background:#F3EEF9;color:#5A3E8A;">Specialty · Grades 4–8</span>
+          <div class="wf-theme-dates mt8">📅 July 6–10 &amp; July 20–24</div>
+          <h5 style="font-size:15px;font-weight:700;color:var(--w-dark);margin:8px 0 6px;">Ready for Something More?</h5>
+          <p style="font-size:12px;color:var(--w-mid);">Students entering grades 4–8 can go deeper with our Specialty Camps. Rooted in Nature and Expedition Elachee offer a more immersive, more challenging experience.</p>
+          <a href="#wf-specialty" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:600;color:#7B5EA7;text-decoration:none;">See Specialty Camps below ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-week note -->
+    <div style="background:var(--w-surface2);border-radius:8px;padding:16px 20px;margin-top:14px;">
+      <p style="font-size:13px;color:var(--w-dark);font-weight:600;margin:0 0 4px;">Interested in more than one week?</p>
+      <p style="font-size:12px;color:var(--w-mid);margin:0;">Many families register for multiple sessions. Each theme is different. Each week stands on its own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S6: DAY AT CAMP ========== -->
+<div class="section-rule">Section 06 — A Day at Camp · Builds trust / removes anxiety for first-time parents</div>
+<section class="wf-day">
+  <div class="anno">S6 · DAY AT CAMP</div>
+  <div class="container">
+    <div class="wf-day-grid">
+      <div>
+        <span class="eyebrow-wf">A Typical Day</span>
+        <div class="wf-h2 mb16">Your Child's Day, Hour by Hour</div>
+        <div class="txt-block mb12"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div></div>
+        <div class="txt-block mb20"><div class="txt-line w-100"></div><div class="txt-line w-85"></div></div>
+        <div class="wf-creek-box">
+          <h5>🌊 Creek Days: Thursday and Friday Every Week</h5>
+          <div class="txt-block mb10"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div></div>
+          <ul class="wf-check-list">
+            <li>Bring a towel and closed-toe water shoes</li>
+            <li>Wear creek outfit under clothes — no changing on site</li>
+            <li>No swimming ability required</li>
+            <li>All creek activities fully supervised</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wf-timeline">
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">8:15 AM</div>
+          <div class="wf-tl-title">Drop-Off &amp; Morning Arrival</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Drop-off begins at 8:15. Campers check in with their group leader and settle into the morning with a light activity.</p>
+        </div>
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">9:00 AM</div>
+          <div class="wf-tl-title">Morning Adventure Block</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Trail hikes, habitat exploration, hands-on science and theme-driven activities led by our naturalist staff.</p>
+        </div>
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">11:30 AM</div>
+          <div class="wf-tl-title">Lunch &amp; Free Play</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Campers eat the lunch they brought from home and enjoy some unstructured outdoor time. Real rest. Real fun.</p>
+        </div>
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">12:30 PM</div>
+          <div class="wf-tl-title">Afternoon Activity Block</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Archery, nature crafts, group games, wildlife encounters or creek exploration on Thursdays and Fridays.</p>
+        </div>
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">2:15 PM</div>
+          <div class="wf-tl-title">Wrap-Up &amp; Debrief</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Groups come together to share what they found. Campers gather their gear. Usually already talking about tomorrow.</p>
+        </div>
+        <div class="wf-tl-item">
+          <div class="wf-tl-dot"></div>
+          <div class="wf-tl-time">2:45 PM</div>
+          <div class="wf-tl-title">Pick-Up</div>
+          <p style="font-size:12px;color:var(--w-soft);margin-top:4px;">Pick-up begins at 2:45. Please plan to arrive on time so every camper gets a smooth, happy send-off.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <span class="btn-wf btn-solid btn-lg">Register for Camp →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S7: SPECIALTY ========== -->
+<div class="section-rule">Section 07 — Specialty Camps · Differentiated premium programs for grades 4–8</div>
+<section class="wf-specialty">
+  <div class="anno">S7 · SPECIALTY CAMPS</div>
+  <div class="container">
+    <span class="eyebrow-wf" style="color:rgba(255,255,255,0.35);">Specialty Programs</span>
+    <div class="wf-h2 col-white mb12">For Older Adventurers Ready for More</div>
+    <p class="wf-body col-wht-60 mb32" style="max-width:580px;">Grades 4–8 can go deeper. Our specialty camps offer a more immersive, challenging experience in the wild.</p>
+    <div class="wf-specialty-grid">
+      <div class="wf-spec-card card-a">
+        <span class="eyebrow-wf">Girls Only · Specialty Camp</span>
+        <h4>Rooted in Nature</h4>
+        <div class="txt-block mb4"><div class="txt-line w-100" style="background:rgba(255,255,255,0.12);"></div><div class="txt-line w-90" style="background:rgba(255,255,255,0.12);"></div><div class="txt-line w-80" style="background:rgba(255,255,255,0.12);"></div></div>
+        <div class="wf-spec-details">
+          <div class="wf-spec-detail"><span class="dl">Who</span><span class="dv">Girls entering grades 4–8</span></div>
+          <div class="wf-spec-detail"><span class="dl">When</span><span class="dv">July 6–10, 2026</span></div>
+          <div class="wf-spec-detail"><span class="dl">Price</span><span class="dv">$350 per week</span></div>
+        </div>
+        <div class="wf-tags">
+          <span class="wf-tag-dark">Forest mindfulness</span><span class="wf-tag-dark">Nature journaling</span>
+          <span class="wf-tag-dark">Creative workshops</span><span class="wf-tag-dark">Community building</span>
+        </div>
+        <span class="btn-wf btn-ghost" style="font-size:13px;">Register for This Week →</span>
+      </div>
+      <div class="wf-spec-card card-b">
+        <span class="eyebrow-wf">All Genders · Specialty Camp</span>
+        <h4>Expedition Elachee</h4>
+        <div class="txt-block mb4"><div class="txt-line w-100" style="background:rgba(255,255,255,0.10);"></div><div class="txt-line w-90" style="background:rgba(255,255,255,0.10);"></div><div class="txt-line w-80" style="background:rgba(255,255,255,0.10);"></div></div>
+        <div class="wf-spec-details">
+          <div class="wf-spec-detail"><span class="dl">Who</span><span class="dv">Students entering grades 4–8</span></div>
+          <div class="wf-spec-detail"><span class="dl">When</span><span class="dv">July 20–24, 2026</span></div>
+          <div class="wf-spec-detail"><span class="dl">Price</span><span class="dv">$350 per week</span></div>
+        </div>
+        <div class="wf-tags">
+          <span class="wf-tag-dark">Shelter building</span><span class="wf-tag-dark">Fire safety</span>
+          <span class="wf-tag-dark">Navigation skills</span><span class="wf-tag-dark">Wilderness first aid</span>
+        </div>
+        <span class="btn-wf btn-ghost" style="font-size:13px;">Register for This Week →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S8: PLAN ========== -->
+<div class="section-rule">Section 08 — Reassurance Plan · StoryBrand: The Plan (removes fear of next step)</div>
+<section class="wf-plan">
+  <div class="anno">S8 · PLAN</div>
+  <div class="container">
+    <div class="wf-plan-inner">
+      <span class="eyebrow-wf">How It Works</span>
+      <div class="wf-h2 mb12">Here's How It Works, Step by Step</div>
+      <p style="font-size:13px;color:var(--w-mid);max-width:560px;margin:0 auto 24px;line-height:1.6;">We make it simple. Here is exactly what happens from the moment you register to the moment your child walks through our gates.</p>
+      <div class="wf-plan-steps">
+        <div class="wf-plan-step">
+          <div class="wf-step-num">01</div>
+          <h5>You Register Online in Minutes</h5>
+          <p style="font-size:12px;color:var(--w-mid);line-height:1.5;">Choose your week online. You will get an immediate confirmation with everything you need to prepare.</p>
+        </div>
+        <div class="wf-plan-step">
+          <div class="wf-step-num">02</div>
+          <h5>We Send You a Welcome Guide</h5>
+          <p style="font-size:12px;color:var(--w-mid);line-height:1.5;">We send a welcome email the Monday before camp week. It covers the schedule, what to pack and what to expect on Creek Day.</p>
+        </div>
+        <div class="wf-plan-step">
+          <div class="wf-step-num">03</div>
+          <h5>Drop Off Curious. Pick Up Confident.</h5>
+          <p style="font-size:12px;color:var(--w-mid);line-height:1.5;">Drop off a curious kid. Pick up a confident one. We handle everything in between.</p>
+        </div>
+      </div>
+      <div class="wf-reassure-pills">
+        <span class="wf-reassure-pill">No prior experience needed</span>
+        <span class="wf-reassure-pill">Nut-free environment</span>
+        <span class="wf-reassure-pill">Sunscreen &amp; bug spray provided</span>
+        <span class="wf-reassure-pill">Small group sizes</span>
+        <span class="wf-reassure-pill">Trained naturalist staff</span>
+        <span class="wf-reassure-pill">Weekly parent newsletter</span>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <span class="btn-wf btn-solid btn-lg">Register for Camp →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S9: PRACTICAL INFO ========== -->
+<div class="section-rule">Section 09 — Practical Info · All logistics inline — hours, ages, packing, creek days</div>
+<section class="wf-practical">
+  <div class="anno">S9 · PRACTICAL INFO</div>
+  <div class="container">
+    <div class="text-center mb32">
+      <span class="eyebrow-wf">Good to Know</span>
+      <div class="wf-h2 mb8">Everything You Need Before You Register</div>
+      <p class="wf-body-sm" style="max-width:500px;margin:0 auto;">We want you to feel completely prepared before your child's first day — not scrambling for answers on a Monday morning. Here's everything you need to know, right up front.</p>
+    </div>
+    <div class="wf-practical-grid">
+      <div class="wf-prac-card">
+        <h5>⏰ Hours &amp; Schedule</h5>
+        <ul class="wf-prac-list">
+          <li><span class="wf-prac-label">Drop-off begins</span>8:15 AM</li>
+          <li><span class="wf-prac-label">Pick-up begins</span>2:45 PM</li>
+          <li><span class="wf-prac-label">Camp days</span>Monday–Friday only</li>
+          <li><span class="wf-prac-label">Before/after care</span>Not available at this time</li>
+          <li><span class="wf-prac-label">Early pick-up</span>Must be by 2:00 PM</li>
+          <li><span class="wf-prac-label">Late pick-up</span>Consistent late pick-up may incur a fee. We appreciate your punctuality.</li>
+        </ul>
+      </div>
+      <div class="wf-prac-card">
+        <h5>👧 Who Can Attend</h5>
+        <ul class="wf-prac-list">
+          <li><span class="wf-prac-label">Elementary camp</span>Must be 5+ by Sept 1, 2026 · Entering K–6th</li>
+          <li><span class="wf-prac-label">Specialty camps</span>Entering grades 4–8</li>
+          <li><span class="wf-prac-label">Prior experience</span>Not required</li>
+          <li><span class="wf-prac-label">Swimming</span>Not required for creek</li>
+          <li><span class="wf-prac-label">Special needs</span>Contact Camp Director</li>
+        </ul>
+      </div>
+      <div class="wf-prac-card">
+        <h5>🎒 What to Pack Every Day</h5>
+        <ul class="wf-prac-list">
+          <li><span class="wf-prac-label">Water bottle</span>Labeled, easy to carry</li>
+          <li><span class="wf-prac-label">Lunch</span>In one lunchbox camper can carry</li>
+          <li><span class="wf-prac-label">Snacks</span>At least 2 per day</li>
+          <li><span class="wf-prac-label">Hat</span>Optional but recommended</li>
+          <li><span class="wf-prac-label">Sunscreen/bugs</span>Provided by Elachee</li>
+        </ul>
+        <div class="wf-note">🥜 Nut-free environment. Please do not pack items containing nuts.</div>
+      </div>
+      <div class="wf-prac-card">
+        <h5>🌊 Creek Day Extra Packing</h5>
+        <ul class="wf-prac-list">
+          <li><span class="wf-prac-label">Creek days</span>Every Thursday &amp; Friday</li>
+          <li><span class="wf-prac-label">Towel</span>Full-size towel required</li>
+          <li><span class="wf-prac-label">Water shoes</span>Closed-toe only</li>
+          <li><span class="wf-prac-label">Wear it in</span>Dress in creek clothes under regular clothes</li>
+          <li><span class="wf-prac-label">Water depth</span>Ankle-deep in most areas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S10: PRICING ========== -->
+<div class="section-rule">Section 10 — Pricing &amp; Discounts · 2-column cards + inline discounts + membership CTA</div>
+<section class="wf-pricing">
+  <div class="anno">S10 · PRICING</div>
+  <div class="container">
+    <div class="text-center mb32">
+      <span class="eyebrow-wf">Tuition &amp; Savings</span>
+      <div class="wf-h2 mb8">A Summer They'll Never Forget. At a Price That Makes Sense.</div>
+      <p class="wf-body-sm" style="max-width:500px;margin:0 auto;">Camp Elachee delivers a genuinely extraordinary outdoor experience at a price that works for real families.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="wf-price-card featured" style="display:flex;flex-direction:column;">
+        <div class="wf-featured-badge">Most Popular</div>
+        <h5>Elementary Camp</h5>
+        <p class="wf-price-age">Kindergarten through 6th Grade · Ages 5–12</p>
+        <div class="wf-price-amount">$255<span>/week</span></div>
+        <p class="wf-price-per">Per camper, per week</p>
+        <ul class="wf-price-features" style="flex:1;">
+          <li>All 5 days of theme-based outdoor programming</li>
+          <li>Trained naturalist instruction every day</li>
+          <li>Sunscreen &amp; bug spray provided</li>
+          <li>Creek Day every Thursday &amp; Friday</li>
+          <li>Weekly parent newsletter</li>
+          <li>8 themed weeks to choose from</li>
+        </ul>
+        <span class="btn-wf btn-solid" style="width:100%;justify-content:center;display:flex;margin-top:auto;">Register for Camp</span>
+      </div>
+      <div class="wf-price-card" style="display:flex;flex-direction:column;">
+        <h5>Specialty Camps</h5>
+        <p class="wf-price-age">Grades 4–8 · Rooted in Nature &amp; Expedition Elachee</p>
+        <div class="wf-price-amount">$350<span>/week</span></div>
+        <p class="wf-price-per">Per camper, per week</p>
+        <ul class="wf-price-features" style="flex:1;">
+          <li>Immersive programming for older campers</li>
+          <li>Smaller group sizes</li>
+          <li>Specialized curriculum and equipment</li>
+          <li>All standard camp inclusions</li>
+          <li>2 distinct specialty experiences available</li>
+          <li>Rooted in Nature (July 6–10) and Expedition Elachee (July 20–24)</li>
+        </ul>
+        <span class="btn-wf btn-outline" style="width:100%;justify-content:center;display:flex;margin-top:auto;">Register for Camp</span>
+      </div>
+    </div>
+
+    <div style="background:var(--w-surface);border:0.5px solid var(--w-border);border-radius:var(--border-radius-lg,10px);padding:24px 28px;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start;">
+        <div style="text-align:center;">
+          <div class="wf-discount-pct">5%</div>
+          <div style="font-size:12px;font-weight:600;color:var(--w-dark);margin-bottom:4px;">Sibling Discount</div>
+          <p class="wf-body-sm">Register siblings at the same time. Contact us for your discount code.</p>
+        </div>
+        <div style="text-align:center;border-left:0.5px solid var(--w-border);border-right:0.5px solid var(--w-border);padding:0 20px;">
+          <div class="wf-discount-pct">10%</div>
+          <div style="font-size:12px;font-weight:600;color:var(--w-dark);margin-bottom:4px;">Adventurer Member</div>
+          <p class="wf-body-sm">Elachee Family Adventurer Members save 10% on every registration.</p>
+        </div>
+        <div style="text-align:center;">
+          <div class="wf-discount-pct">20%</div>
+          <div style="font-size:12px;font-weight:600;color:var(--w-dark);margin-bottom:4px;">Discovery Plus Member</div>
+          <p class="wf-body-sm">Our highest discount tier. Saves families up to $70 per week.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-membership-banner">
+      <div>
+        <p style="font-size:14px;color:#fff;font-weight:600;margin-bottom:4px;">Elachee Members Register Early and Save More.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.6);margin:0;">Members get exclusive early registration access on February 3rd. Plus up to 20% off every session. If you are planning to send your child to camp, membership pays for itself.</p>
+      </div>
+      <span class="btn-wf btn-solid" style="background:#fff;color:#1A1A1A;white-space:nowrap;">Become a Member →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S11: STAFF & SAFETY ========== -->
+<div class="section-rule">Section 11 — Staff &amp; Safety · Staff credentials, safety protocols, Director bio + contact</div>
+<section class="wf-safety">
+  <div class="anno">S11 · STAFF &amp; SAFETY</div>
+  <div class="container">
+    <div class="wf-safety-grid">
+      <div>
+        <span class="eyebrow-wf">Safety &amp; Staff</span>
+        <div class="wf-h2 mb16">The People Behind Your Child's Adventure</div>
+        <p style="font-size:13px;color:var(--w-mid);line-height:1.6;margin-bottom:10px;">Our naturalists are trained educators. They understand children as well as they understand the forest.</p>
+        <p style="font-size:13px;color:var(--w-mid);line-height:1.6;margin-bottom:20px;">Every staff member is background-checked, first aid certified and CPR trained. We believe real adventures deserve real care. Your child is in good hands.</p>
+        <div class="wf-safety-features">
+          <div class="wf-safety-feat">
+            <div class="wf-safety-icon"><div style="width:18px;height:18px;background:var(--w-border);border-radius:3px;"></div></div>
+            <div><h6>Small Group Supervision</h6><p>Low camper-to-staff ratios ensure every child is known and supported.</p></div>
+          </div>
+          <div class="wf-safety-feat">
+            <div class="wf-safety-icon"><div style="width:18px;height:18px;background:var(--w-border);border-radius:3px;"></div></div>
+            <div><h6>First Aid Certified Staff</h6><p>All naturalists hold current First Aid and CPR certifications.</p></div>
+          </div>
+          <div class="wf-safety-feat">
+            <div class="wf-safety-icon"><div style="width:18px;height:18px;background:var(--w-border);border-radius:3px;"></div></div>
+            <div><h6>Background-Checked Team</h6><p>Every staff member passes a comprehensive background check.</p></div>
+          </div>
+          <div class="wf-safety-feat">
+            <div class="wf-safety-icon"><div style="width:18px;height:18px;background:var(--w-border);border-radius:3px;"></div></div>
+            <div><h6>Inclusive by Design</h6><p>Contact Sam directly if your child has special needs or medical conditions.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="wf-director-card">
+          <div class="wf-director-avatar">SF</div>
+          <h5>Samantha Fricks</h5>
+          <p class="wf-director-title">Camp Director · Elachee Nature Science Center</p>
+          <div class="wf-director-quote">"Every child who comes through our gates deserves to feel like the forest belongs to them — because it does. Our job is just to make the introduction."</div>
+          <div class="wf-contact-links">
+            <div class="wf-contact-link">💬 Send Us a Message</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S12: TESTIMONIALS ========== -->
+<div class="section-rule">Section 12 — Testimonials · 5 reviews spanning all ICP types</div>
+<section class="wf-testimonials">
+  <div class="anno">S12 · TESTIMONIALS</div>
+  <div class="container">
+    <div class="text-center mb32">
+      <span class="eyebrow-wf">What Parents Say</span>
+      <div class="wf-h2 mb8">Don't Take Our Word for It</div>
+      <p class="wf-body-sm" style="max-width:440px;margin:0 auto;">Hear from families who've trusted Camp Elachee with their child's summer.</p>
+    </div>
+    <div class="wf-testi-grid">
+      <div class="wf-testi-card">
+        <div class="stars-wf">★★★★★</div>
+        <div class="wf-testi-body mt8">
+          <div class="wf-testi-quote-mark">"</div>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-95"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div><div class="txt-line w-60"></div></div>
+        </div>
+        <div class="wf-testi-author">
+          <div class="wf-testi-avatar"></div>
+          <div><div class="wf-testi-name">Alinne T.</div><div class="wf-testi-type">Parent of twin first-time campers</div></div>
+        </div>
+      </div>
+      <div class="wf-testi-card">
+        <div class="stars-wf">★★★★★</div>
+        <div class="wf-testi-body mt8">
+          <div class="wf-testi-quote-mark">"</div>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-85"></div><div class="txt-line w-75"></div><div class="txt-line w-50"></div></div>
+        </div>
+        <div class="wf-testi-author">
+          <div class="wf-testi-avatar"></div>
+          <div><div class="wf-testi-name">Michelle R.</div><div class="wf-testi-type">Parent of returning camper, 3 years</div></div>
+        </div>
+      </div>
+      <div class="wf-testi-card">
+        <div class="stars-wf">★★★★★</div>
+        <div class="wf-testi-body mt8">
+          <div class="wf-testi-quote-mark">"</div>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div><div class="txt-line w-65"></div></div>
+        </div>
+        <div class="wf-testi-author">
+          <div class="wf-testi-avatar"></div>
+          <div><div class="wf-testi-name">David K.</div><div class="wf-testi-type">Working dad, first-year parent</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="wf-testi-grid-2 mt12">
+      <div class="wf-testi-card">
+        <div class="stars-wf">★★★★★</div>
+        <div class="wf-testi-body mt8">
+          <div class="wf-testi-quote-mark">"</div>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div><div class="txt-line w-70"></div></div>
+        </div>
+        <div class="wf-testi-author">
+          <div class="wf-testi-avatar"></div>
+          <div><div class="wf-testi-name">Jennifer P.</div><div class="wf-testi-type">Parent of anxious first-time camper</div></div>
+        </div>
+      </div>
+      <div class="wf-testi-card">
+        <div class="stars-wf">★★★★★</div>
+        <div class="wf-testi-body mt8">
+          <div class="wf-testi-quote-mark">"</div>
+          <div class="txt-block"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-85"></div><div class="txt-line w-70"></div></div>
+        </div>
+        <div class="wf-testi-author">
+          <div class="wf-testi-avatar"></div>
+          <div><div class="wf-testi-name">Barbara W.</div><div class="wf-testi-type">Grandmother — gifted Expedition Elachee</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S13: FAQ ========== -->
+<div class="section-rule">Section 13 — FAQ Accordion · 15 Qs inline — zero PDF links</div>
+<section class="wf-faq">
+  <div class="anno">S13 · FAQ</div>
+  <div class="container">
+    <div class="text-center mb32">
+      <span class="eyebrow-wf">Frequently Asked Questions</span>
+      <div class="wf-h2 mb8">Everything Else You're Wondering</div>
+      <p class="wf-body-sm">Answers to the questions parents ask most.</p>
+    </div>
+    <div class="wf-faq-grid">
+      <div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">What ages can attend Camp Elachee?</span><span class="wf-faq-icon">+</span></div><div class="wf-faq-answer"><div class="txt-block" style="padding-bottom:12px;"><div class="txt-line w-100"></div><div class="txt-line w-85"></div></div></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">What are the exact camp hours?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Does my child need prior outdoor experience?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Does my child need to know how to swim for Creek Day?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">When does registration open?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Are there discounts available?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">What is the refund and cancellation policy?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Can I request that my child be grouped with a friend?</span><span class="wf-faq-icon">+</span></div></div>
+      </div>
+      <div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">What should my child bring each day?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Is Camp Elachee nut-free?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Can you accommodate special needs or medical conditions?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Will I receive communication during camp week?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">What if my child is upset or struggling?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Is there a CIT or Junior Counselor program?</span><span class="wf-faq-icon">+</span></div></div>
+        <div class="wf-faq-item"><div class="wf-faq-row"><span class="wf-faq-q">Where is Camp Elachee located?</span><span class="wf-faq-icon">+</span></div></div>
+      </div>
+    </div>
+    <div class="text-center mt32">
+      <p class="wf-body-sm mb12">Still have a question? We'd love to hear from you.</p>
+      <span class="btn-wf btn-outline">Send Us a Message →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S14: REGISTRATION ========== -->
+<div class="section-rule">Section 14 — Registration · Dates, urgency, step-by-step how-to</div>
+<section class="wf-register">
+  <div class="anno">S14 · REGISTRATION</div>
+  <div class="container">
+    <div class="wf-register-grid">
+      <div>
+        <span class="eyebrow-wf">Register for 2026</span>
+        <div class="wf-h2 mb16">Summer Weeks Fill Up Fast. Here's How to Secure a Spot.</div>
+        <div class="txt-block mb20"><div class="txt-line w-100"></div><div class="txt-line w-90"></div><div class="txt-line w-80"></div></div>
+        <div class="wf-reg-dates">
+          <div class="wf-reg-date">
+            <div class="wf-reg-date-icon"></div>
+            <div><div class="wf-reg-date-label">Member Early Access</div><div class="wf-reg-date-val">February 3, 2026 at 10:00 AM</div></div>
+          </div>
+          <div class="wf-reg-date">
+            <div class="wf-reg-date-icon"></div>
+            <div><div class="wf-reg-date-label">General Public Registration Opens</div><div class="wf-reg-date-val">March 3, 2026 at 10:00 AM</div></div>
+          </div>
+          <div class="wf-reg-date">
+            <div class="wf-reg-date-icon"></div>
+            <div><div class="wf-reg-date-label">Camp Season</div><div class="wf-reg-date-val">Early June through Mid-July 2026</div></div>
+          </div>
+        </div>
+        <span class="btn-wf btn-solid btn-lg">Register for Camp →</span>
+      </div>
+      <div>
+        <div class="wf-reg-steps-box">
+          <h5>What Happens After You Click Register</h5>
+          <ul class="wf-reg-step-list">
+            <li><span class="wf-step-circle">1</span><div><strong>Create your account</strong> — Simple family account on Campsite — takes about two minutes.</div></li>
+            <li><span class="wf-step-circle">2</span><div><strong>Select your week(s) and camper(s)</strong> — Choose themes and dates. Add multiple weeks if you love more than one.</div></li>
+            <li><span class="wf-step-circle">3</span><div><strong>Complete your camper profile</strong> — Age, grade, medical info, emergency contacts.</div></li>
+            <li><span class="wf-step-circle">4</span><div><strong>Pay securely online</strong> — Processed through Campsite. Immediate confirmation email sent.</div></li>
+            <li><span class="wf-step-circle">5</span><div><strong>Watch for your welcome email</strong> — Monday before each camp week with full prep details.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== S15: FINAL CTA ========== -->
+<div class="section-rule">Section 15 — Final CTA · StoryBrand: Failure stakes woven in + primary + transitional CTA</div>
+<section class="wf-final-cta">
+  <div class="anno">S15 · FINAL CTA</div>
+  <span class="eyebrow-wf" style="color:rgba(255,255,255,0.35);">Before This Summer Slips Away</span>
+  <h2>Don't Let This Be the Summer<br>They Look Back and Missed.</h2>
+  <p style="font-size:16px;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto 36px;line-height:1.7;">Spots fill up every summer. The week you want won't wait. Give your child a summer they will actually remember. Register today.</p>
+  <div class="wf-final-btns">
+    <span class="btn-wf btn-solid btn-lg" style="background:#555;">Reserve Your Child's Spot →</span>
+    <span class="btn-wf btn-ghost">Questions? Send Us a Message</span>
+  </div>
+  <p class="wf-final-note">Want early registration access and up to 20% off camp tuition? Become an Elachee member before March 3rd.</p>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div class="section-rule">Footer — Match existing Elachee footer style / Elementor global footer</div>
+<footer class="wf-footer">
+  <div class="container">
+    <div class="wf-footer-grid">
+      <div class="wf-footer-brand">
+        <h4>Camp Elachee</h4>
+        <p>Where children discover the natural world — and themselves. Part of Elachee Nature Science Center since 1978.</p>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.35);">📍 2125 Elachee Drive, Gainesville, GA 30504</span>
+          <span style="font-size:12px;color:rgba(255,255,255,0.35);">📞 770-535-1976</span>
+          <span style="font-size:12px;color:rgba(255,255,255,0.35);">✉ Send Us a Message</span>
+        </div>
+      </div>
+      <div class="wf-footer-col">
+        <h5>Camp</h5>
+        <ul class="wf-footer-links">
+          <li>2026 Themes</li><li>Specialty Camps</li><li>Tuition &amp; Discounts</li><li>Registration</li><li>FAQ</li>
+        </ul>
+      </div>
+      <div class="wf-footer-col">
+        <h5>Elachee</h5>
+        <ul class="wf-footer-links">
+          <li>Visit the Center</li><li>Memberships</li><li>All Programs</li><li>Events</li><li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="wf-footer-col">
+        <h5>Register</h5>
+        <ul class="wf-footer-links">
+          <li>Register for Camp</li><li>Become a Member</li><li>Send Us a Message</li><li>Join Our Team</li><li>Volunteer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wf-footer-bottom">
+      <span>© 2026 Elachee Nature Science Center. All rights reserved.</span>
+      <span>Privacy Policy · Sitemap · Website by Splash Omnimedia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- IMPORT GUIDE -->
+<div style="background:#1A1A1A;padding:28px 32px;border-top:2px solid #E6C840;">
+  <div style="max-width:1140px;margin:0 auto;">
+    <div style="font-size:12px;font-weight:700;color:#E6C840;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">How to Import This Wireframe into Figma</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;"><strong style="color:rgba(255,255,255,0.8);display:block;margin-bottom:4px;">Option A — HTML to Figma Plugin</strong>Install "HTML to Figma" by Builder.io in Figma. Paste the HTML file URL or local file path. Plugin auto-converts to Figma frames. Best fidelity.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;"><strong style="color:rgba(255,255,255,0.8);display:block;margin-bottom:4px;">Option B — Figma Mirror</strong>Open the HTML in Chrome. Use Figma's "Get CSS" browser extension or the Figma Dev Mode import to trace sections manually.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;"><strong style="color:rgba(255,255,255,0.8);display:block;margin-bottom:4px;">Option C — Section-by-Section</strong>Use this wireframe as a visual spec. Each section rule label maps directly to a Figma frame name. Recreate section-by-section using existing Elachee Elementor components.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;"><strong style="color:rgba(255,255,255,0.8);display:block;margin-bottom:4px;">Design Tokens</strong>All grays are placeholders. Replace with Elachee brand colors when applying in Figma. Typography placeholders → swap to Elachee's active Google Fonts. See content draft HTML for full copy.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end figma-frame -->
+</body>
+</html>
